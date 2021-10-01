@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int scs(string s1,string s2){
+    int lcs(string s1,string s2){
         int m = s1.size();
         int n = s2.size();
         int dp[m+1][n+1];
@@ -26,6 +26,6 @@ public:
     int longestPalindromeSubseq(string s) {
         string og = s;
         reverse(s.begin(),s.end());
-        return scs(s,og);
+        return lcs(s,og);
     }
 };
