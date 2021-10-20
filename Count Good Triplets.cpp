@@ -1,3 +1,4 @@
+//T.C. for both - O(n^3)
 class Solution {
 public:
     int countGoodTriplets(vector<int>& arr, int a, int b, int c) {
