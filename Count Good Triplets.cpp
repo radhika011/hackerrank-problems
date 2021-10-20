@@ -18,3 +18,28 @@ public:
         return count;
     }
 };
+//Another variation
+int countGoodTriplets(vector<int> &arr1,vector<int> &arr2) 
+{
+    // Write your code here.
+    int m = arr1.size();
+    int n = arr2.size();
+    int count = 0;
+    for(int i =0;i<m;i++){
+        int curr = arr1[i]*arr1[i];
+        for(int j =0;j<n;j++){
+            for(int k =j+1;k<n;k++){
+                if(curr==(arr2[j]*arr2[k])) count++;
+            }
+        }
+    }
+    for(int i =0;i<n;i++){
+        int curr = arr2[i]*arr2[i];
+        for(int j =0;j<m;j++){
+            for(int k =j+1;k<m;k++){
+                if(curr==(arr1[j]*arr1[k])) count++;
+            }
+        }
+    }
+    return count;
+}
