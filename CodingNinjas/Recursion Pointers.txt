@@ -21,3 +21,6 @@ int main() {
 Ans: Runtime Error
 In function print when recursion call is being made  n-- is being passed as input. Here we are using post decrement operator, so argument passed to next function 
 call is n and not n - 1. Thus there will be infinite recursion calls and runtime error will come.
+
+To remove first element in array arr[] (not applicable for vecs) - arr+1
+Eg:- rec(arr+1,size-1);
