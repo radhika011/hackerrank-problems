@@ -61,6 +61,33 @@ int lastIndex(int input[], int size, int x) {
 
 }
 
+int allIndexes(int input[], int size, int x, int output[]) {
+  /* Don't write main().
+     Don't read input, it is passed as function argument.
+     Save all the indexes in the output array passed and return the size of output array.
+     Taking input and printing output is handled automatically.
+  */
+	if(size==0) return -1;
+    int rem = allIndexes(input+1,size-1,x,output);
+    if(rem!=-1&&input[0]==x){
+        for(int i = 0;i<rem;i++){
+            output[i]+=1;
+        }
+        for(int i = rem-1;i>=0;i--){
+            output[i+1] = output[i];
+        }
+        output[0] = 0;
+        return 1+rem;
+    }
+    if(input[0]==x){
+        output[0]= 0;
+        return 1;
+    }
+    for(int i = 0;i<rem;i++){
+            output[i]+=1;
+    }
+    return rem;
+}
 
 
 
