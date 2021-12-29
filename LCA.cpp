@@ -1,3 +1,4 @@
+//WTH IS THIS EVEN
 class Solution {
 public:
     bool isPresent(TreeNode* localRoot,TreeNode* p, TreeNode* q){
@@ -39,5 +40,46 @@ public:
         TreeNode *lca = NULL;
         lca = helper(root,p,q);
         return lca;
+    }
+};
+//THE ACTUAL ANSWER: POINTER TO POINTER
+class Solution {
+public:
+    
+    bool lookFor(TreeNode* root,TreeNode* p, TreeNode* q,TreeNode** ans){
+        if(root==NULL) return false;
+        if(root==p||root==q){
+            bool lookForLeft = lookFor(root->left,p,q,ans);
+            bool lookForRight = lookFor(root->right,p,q,ans);
+            if(lookForLeft||lookForRight){
+                *ans = root;
+               
+            }
+            return true;
+            
+            
+            
+        }
+        bool lookForLeft = lookFor(root->left,p,q,ans);
+        bool lookForRight = lookFor(root->right,p,q,ans);
+        
+            
+            if(lookForLeft&&lookForRight){
+                
+                *ans = root;
+                //cout<<(*ans)->val<<endl;
+                return false;
+            }
+           
+         if(lookForLeft||lookForRight) return true;
+        return false;
+    }
+    
+    
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        TreeNode* ans = NULL;
+        lookFor(root,p,q,&ans);
+        //cout<<(*ans)->val<<endl;
+        return ans;
     }
 };
