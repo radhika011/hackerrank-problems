@@ -7,7 +7,7 @@ Return the letter that was added to t.
 */
 
 
-
+//Hashmap approach
 class Solution {
 public:
     char findTheDifference(string s, string t) {
@@ -26,5 +26,15 @@ public:
             }
         }
         return '-1';
+    }
+};
+//Bit manipulation approach
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        int ans = 0;
+        for(int i =0;i<s.size();i++) ans^=s[i];
+        for(int i =0;i<t.size();i++) ans^=t[i];
+        return ans;
     }
 };
