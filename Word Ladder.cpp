@@ -111,3 +111,46 @@ public:
         return minLevel;
     }
 }; 
+
+
+//This is efficient enough, apparently
+class Solution {
+public:
+    void generatePossible(string curr,int ind,queue<string>& q,unordered_set<string>& valid){
+        if(curr.size()==ind){
+            return;
+        }
+        char position = curr[ind];
+        for(int i = 0;i<26;i++){
+            char ch = char(97+i);
+            if(ch!=position){
+                string temp = curr;
+                temp[ind] = ch;
+                if(valid.find(temp)!=valid.end()){
+                    q.push(temp);
+                }
+            }
+        }
+        generatePossible(curr,ind+1,q,valid);
+    }
+    int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
+        unordered_set<string> valid{wordList.begin(),wordList.end()};
+        queue<string> q;
+        unordered_set<string> visited;
+        int steps = 0;
+        q.push(beginWord);
+        while(!q.empty()){
+            int temp = q.size();
+            for(int i = 0;i<temp;i++){
+                string curr = q.front();
+                q.pop();
+                if(curr==endWord) return steps+1;
+                if(visited.find(curr)!=visited.end()) continue;
+                generatePossible(curr,0,q,valid);
+                visited.insert(curr);
+            }
+            steps++;
+        }
+        return 0;
+    }
+};
