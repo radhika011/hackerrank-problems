@@ -8,7 +8,7 @@ Return the maximum sub-array sum in the modified array. Note that the length of 
 
 As the answer can be very large, return the answer modulo 109 + 7.
 
-
+TC: O(n)
 
 
 */
