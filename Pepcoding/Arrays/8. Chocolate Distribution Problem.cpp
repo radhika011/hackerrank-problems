@@ -8,8 +8,9 @@ Each student gets one packet.
 The difference between the number of chocolates in the packet with maximum chocolates and the packet with minimum chocolates given to the students is minimum.
 
 
-
+TWO POINTER WITH SIZE = M BETWEEN THEM
 
 
 
 */
+
