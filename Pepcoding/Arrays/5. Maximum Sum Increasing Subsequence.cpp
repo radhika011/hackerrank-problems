@@ -3,7 +3,7 @@
 
 Given an array of n positive integers. Find the sum of the maximum sum subsequence of the given array such that the integers in the subsequence are sorted in strictly increasing order i.e. a strictly increasing subsequence. 
 
-
+TC: O(n)
 
 
 */
